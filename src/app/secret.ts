@@ -1,0 +1,1 @@
+export const KEY: string = 'mrEDRaVhvqRkcvOPtSbkJRmU7z6GsrPj';
