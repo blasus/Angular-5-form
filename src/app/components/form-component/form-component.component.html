@@ -1,0 +1,26 @@
+<div class="container rounded">
+  <form class="card-body">
+    <div class="form-group">
+      <div [style.visibility]="notValid ? 'visible' : 'hidden'" class="alert alert-danger">
+        Address not valid! Please try again.
+      </div>
+      <hr class="featurette-divider">
+      <input class="form-control" type="text" name="address" 
+        placeholder = "Address"
+        [(ngModel)] = "address"
+        (keyup.enter)="submit()"
+      /><br />
+      <input class="form-control" type="text" name="latitude" 
+        placeholder = "Latitude" 
+        [ngModel] = "latitude" 
+        disabled 
+      /><br />
+      <input class="form-control" type="text" name="longitude" 
+        placeholder = "Longitude" 
+        [ngModel] = "longitude" 
+        disabled
+      /><br />
+    </div>
+  </form>
+</div>
+
