@@ -15,7 +15,9 @@ import { GetService } from './services/get-service.service';
     FormComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [ GetService ],
   bootstrap: [ AppComponent ]
