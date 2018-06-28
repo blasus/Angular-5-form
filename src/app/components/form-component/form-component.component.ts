@@ -17,11 +17,11 @@ export class FormComponent implements OnInit {
   ngOnInit() {}
 
   submit(address) {
-    if(/^[0-9a-zA-Z].{1,}/.test(address)) {
-      this.getService.getCoordinates(address).subscribe(res => {
-        this.latitude = res.results[0].locations[0].latLng.lat;
-        this.longitude = res.results[0].locations[0].latLng.lng;
-      });
+    if(/^[0-9a-zA-Z].{10,}/.test(address)) {
+      this.getService.getCoordinates(address).subscribe(data => {
+        this.latitude = data['results'][0].locations[0].latLng.lat;
+        this.longitude = data['results'][0].locations[0].latLng.lng;
+      }, error => console.error(error));
       this.notValid = false;
     } else {
       this.notValid = true;
