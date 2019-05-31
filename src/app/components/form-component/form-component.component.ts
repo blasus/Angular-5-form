@@ -8,7 +8,6 @@ import { GetService } from '../../services/get-service.service';
 })
 export class FormComponent implements OnInit {
 
-  address: string;
   latitude: number;
   longitude: number;
   notValid: boolean;
@@ -17,12 +16,12 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {
-    if(/^[0-9a-zA-Z].{1,}/.test(this.address)){
-      this.getService.getCoordinates(this.address).subscribe(res => {
-        this.latitude = res.results[0].locations[0].latLng.lat;
-        this.longitude = res.results[0].locations[0].latLng.lng;
-      });
+  submit(address) {
+    if(/^[0-9a-zA-Z].{10,}/.test(address)) {
+      this.getService.getCoordinates(address).subscribe(data => {
+        this.latitude = data['results'][0].locations[0].latLng.lat;
+        this.longitude = data['results'][0].locations[0].latLng.lng;
+      }, error => console.error(error));
       this.notValid = false;
     } else {
       this.notValid = true;
